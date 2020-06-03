@@ -4,21 +4,21 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    // script om te builden
+                    sh './gradlew clean build -x test --no-daemon'// script om te builden
                 }
             }
         }
         stage('Test') {
             steps {
                 script {
-                    // script om te testen
+                    sh './gradlew test --no-daemon' // script om te testen
                 }
             }
         }
         stage('Static code analysis') {
             steps {
                 script {
-                    // script om de code qualiteit te checken
+                    sh './gradlew checkstyleMain --no-daemon' //run a gradle task// script om de code qualiteit te checken
                 }
             }
         }
