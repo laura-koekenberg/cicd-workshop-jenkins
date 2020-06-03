@@ -95,7 +95,7 @@ tasks {
 
 heroku {
     val bootJar: BootJar by tasks
-    appName = "<JOUW HEROKU APP NAME>"
+    appName = "jcore-cicd-demo-laura"
     includes = listOf("${project.buildDir}/libs/${bootJar.archiveFileName.get()}")
     includeBuildDir = false
     includeRootDir = project.projectDir
