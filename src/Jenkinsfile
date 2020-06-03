@@ -1,0 +1,36 @@
+pipeline {
+    agent any
+    stages {
+        stage('Build') {
+            steps {
+                script {
+                    // script om te builden
+                }
+            }
+        }
+        stage('Test') {
+            steps {
+                script {
+                    // script om te testen
+                }
+            }
+        }
+        stage('Static code analysis') {
+            steps {
+                script {
+                    // script om de code qualiteit te checken
+                }
+            }
+        }
+        stage('Deploy') {
+            environment {
+                HEROKU_API_KEY = credentials('secret-laura-heroku')
+            }
+            steps {
+                script {
+                    sh './gradlew deployHeroku --no-daemon' //run a gradle task
+                }
+            }
+        }
+    }
+}
